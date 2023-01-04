@@ -28,7 +28,7 @@ if(isset($_POST['add_to_wishlist'])){
    $check_cart_numbers->execute([$p_name, $user_id]);
 
    if($check_wishlist_numbers->rowCount() > 0){
-      $message[] = 'Déjà ajouté à la liste de souhaits !';
+      $message[] = 'Déjà ajouté à la liste d\'envie!';
    }elseif($check_cart_numbers->rowCount() > 0){
       $message[] = 'Déjà ajouté au panier !';   }else{
       $insert_wishlist = $conn->prepare("INSERT INTO `wishlist`(user_id, pid, name, price, image) VALUES(?,?,?,?,?)");
@@ -123,7 +123,7 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="p_price" value="<?= $fetch_products['price']; ?>">
       <input type="hidden" name="p_image" value="<?= $fetch_products['image']; ?>">
       <input type="hidden" type="number" min="1" value="1" name="p_qty" class="qty">
-      <input type="submit" value="Ajouter à la liste d'envies" class="option-btn" name="add_to_wishlist">
+      <input type="submit" value="Ajouter à la liste d'envie" class="option-btn" name="add_to_wishlist">
       <input type="submit" value="Ajouter au panier" class="btn" name="add_to_cart">
    </form>
    <?php

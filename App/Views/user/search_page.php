@@ -87,8 +87,8 @@ if(isset($_POST['add_to_cart'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/style.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -124,7 +124,7 @@ if(isset($_POST['add_to_cart'])){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" class="box" method="POST">
-      <div class="price">$<span><?= $fetch_products['price']; ?></span>/-</div>
+      <div class="price"><span><?= $fetch_products['price']; ?></span>€</div>
       <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
       <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>

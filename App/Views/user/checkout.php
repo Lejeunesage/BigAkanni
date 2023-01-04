@@ -69,8 +69,8 @@ if(isset($_POST['order'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/style.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
    
 </head>
@@ -121,10 +121,10 @@ if(isset($_POST['order'])){
          <div class="inputBox">
             <span>Mode de paiment :</span>
             <select name="method" class="box" required>
-               <option value="cash on delivery">Paiement à la livraison</option>
-               <option value="paytm">MTN Mobile Money </option>
-               <option value="paypal">Moov flooz</option>
-               <option value="credit card">Cart de crédit</option>
+               <option value="Paiement à la livraison">Paiement à la livraison</option>
+               <option value="MTN Mobile Money">MTN Mobile Money </option>
+               <option value="Moov flooz">Moov flooz</option>
+               <option value="Cart de crédit">Cart de crédit</option>
             </select>
          </div>
          <div class="inputBox">

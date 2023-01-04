@@ -7,20 +7,20 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if(!isset($user_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE id = ?");
    $delete_cart_item->execute([$delete_id]);
-   header('location:cart.php');
+   header('location:/card');
 }
 
 if(isset($_GET['delete_all'])){
    $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
    $delete_cart_item->execute([$user_id]);
-   header('location:cart.php');
+   header('location:/card');
 }
 
 if(isset($_POST['update_qty'])){
@@ -45,8 +45,8 @@ if(isset($_POST['update_qty'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/style.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -67,7 +67,7 @@ if(isset($_POST['update_qty'])){
          while($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" method="POST" class="box">
-      <a href="cart.php?delete=<?= $fetch_cart['id']; ?>" 
+      <a href="/card?delete=<?= $fetch_cart['id']; ?>" 
          onclick="return confirm('Supprimer ceci du panier ?');">
       
          <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" >
@@ -75,14 +75,14 @@ if(isset($_POST['update_qty'])){
          </svg>
 
    </a>
-      <a href="view_page.php?pid=<?= $fetch_cart['pid']; ?>" >
+      <a href="/views?pid=<?= $fetch_cart['pid']; ?>" >
          <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
          <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
          </svg>
 
       </a>
-      <img src="uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
+      <img src="./ressources/uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
       <div class="name"><?= $fetch_cart['name']; ?></div>
       <div class="price"><?= $fetch_cart['price']; ?>€</div>
       <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">
@@ -103,9 +103,9 @@ if(isset($_POST['update_qty'])){
 
    <div class="cart-total">
       <p>Grand total : <span><?= $grand_total; ?>€</span></p>
-      <a href="shop.php" class="option-btn">Continuer vos achats</a>
-      <a href="cart.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">Supprimer tout</a>
-      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Passer à la caisse</a>
+      <a href="/shop" class="option-btn">Continuer vos achats</a>
+      <a href="/card?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">Supprimer tout</a>
+      <a href="/checkout" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Passer à la caisse</a>
    </div>
 
 </section>

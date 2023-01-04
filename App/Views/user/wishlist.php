@@ -65,7 +65,7 @@ if(isset($_GET['delete_all'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,8 +75,8 @@ if(isset($_GET['delete_all'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/style.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
    
 
 
@@ -105,14 +105,14 @@ if(isset($_GET['delete_all'])){
          </svg>
 
       </a>
-      <a href="view_page.php?pid=<?= $fetch_wishlist['pid']; ?>">
+      <a href="/views?pid=<?= $fetch_wishlist['pid']; ?>">
          <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
          <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
          </svg>
 
       </a>
-      <img src="uploaded_img/<?= $fetch_wishlist['image']; ?>" alt="">
+      <img src="./ressources/uploaded_img/<?= $fetch_wishlist['image']; ?>" alt="">
       <div class="name"><?= $fetch_wishlist['name']; ?></div>
       <div class="price"><?= $fetch_wishlist['price']; ?>€</div>
       <input type="number" min="1" value="1" class="qty" name="p_qty">
@@ -131,10 +131,10 @@ if(isset($_GET['delete_all'])){
    ?>
    </div>
 
-   <div class="wishlist-total">
+   <div class="/wishlist">
       <p>Grand total : <span><?= $grand_total; ?>€</span></p>
-      <a href="shop.php" class="option-btn">Continuer vos achats</a>
-      <a href="wishlist.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">Tout supprimer</a>
+      <a href="/shop" class="option-btn">Continuer vos achats</a>
+      <a href="/wishlist?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">Tout supprimer</a>
    </div>
 
 </section>
