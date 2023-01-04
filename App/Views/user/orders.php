@@ -7,13 +7,13 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if(!isset($user_id)){
-   header('location:login.php');
+   header('location:/login');
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +76,7 @@ if(!isset($user_id)){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="./ressources/js/script.js"></script>
 
 </body>
 </html>

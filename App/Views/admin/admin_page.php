@@ -146,7 +146,7 @@ if(!isset($admin_id)){
 
 
 
-<script src="js/script.js"></script>
+<script src="./ressources/js/script.js"></script>
 
 </body>
 </html>

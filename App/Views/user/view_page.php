@@ -7,7 +7,7 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if(!isset($user_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_POST['add_to_wishlist'])){
@@ -115,14 +115,14 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="p_name" value="<?= $fetch_products['name']; ?>">
       <input type="hidden" name="p_price" value="<?= $fetch_products['price']; ?>">
       <input type="hidden" name="p_image" value="<?= $fetch_products['image']; ?>">
-      <input type="hidden" type="number" min="1" value="1" name="p_qty" class="qty">
-      <input type="submit" value="add to wishlist" class="option-btn" name="add_to_wishlist">
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+      <input type="number" min="1" value="1" name="p_qty" class="qty">
+      <input type="submit" value="Ajouter à la liste d'envie" class="option-btn" name="add_to_wishlist">
+      <input type="submit" value="Ajouter au panier" class="btn" name="add_to_cart">
    </form>
    <?php
          }
       }else{
-         echo '<p class="empty">no products added yet!</p>';
+         echo '<p class="empty">Aucun produit ajouter</p>';
       }
    ?>
 
@@ -137,7 +137,7 @@ if(isset($_POST['add_to_cart'])){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="./ressources/js/script.js"></script>
 
 </body>
 </html>

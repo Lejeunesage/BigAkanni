@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
             }else{
                move_uploaded_file($image_tmp_name, $image_folder);
                $message[] = 'Enregistré avec succès!';
-               header('location:login.php');
+               header('location:/login');
             }
          }
 
@@ -59,8 +59,8 @@ if(isset($_POST['submit'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/components.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/components.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -86,7 +86,7 @@ if(isset($message)){
    
 <section class="form-container">
 
-   <form action="" enctype="multipart/form-data" method="POST">
+   <form action="/" enctype="multipart/form-data" method="POST">
       <h3>S'inscrire maintenant</h3>
       <input type="text" name="name" class="box" placeholder="Entre votre nom complet" required>
       <input type="email" name="email" class="box" placeholder="Entrer votre email" required>
@@ -94,7 +94,7 @@ if(isset($message)){
       <input type="password" name="cpass" class="box" placeholder="Confirmer votre mot de passe" required>
       <input type="file" name="image" class="box" required accept="image/jpg, image/jpeg, image/png">
       <input type="submit" value="S'inscrire" class="btn" name="submit">
-      <p>Vous avez déjà un compte? <a href="login.php">Se connecter</a></p>
+      <p>Vous avez déjà un compte? <a href="/login">Se connecter</a></p>
    </form>
 
 </section>

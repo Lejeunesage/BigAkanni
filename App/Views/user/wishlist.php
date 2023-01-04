@@ -7,7 +7,7 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if(!isset($user_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_POST['add_to_cart'])){
@@ -131,7 +131,7 @@ if(isset($_GET['delete_all'])){
    ?>
    </div>
 
-   <div class="/wishlist">
+   <div class="wishlist-total">
       <p>Grand total : <span><?= $grand_total; ?>€</span></p>
       <a href="/shop" class="option-btn">Continuer vos achats</a>
       <a href="/wishlist?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">Tout supprimer</a>
@@ -148,7 +148,7 @@ if(isset($_GET['delete_all'])){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="./ressources/js/script.js"></script>
 
 </body>
 </html>

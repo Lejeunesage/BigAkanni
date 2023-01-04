@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_id'] = $row['id'];
-         header('location:home.php');
+         header('location:/');
 
       }else{
          $message[] = 'Aucun utilisateur trouvé !';
@@ -53,8 +53,8 @@ if(isset($_POST['submit'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/components.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/components.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -85,7 +85,7 @@ if(isset($message)){
       <input type="email" name="email" class="box" placeholder="Entrer votre email" required>
       <input type="password" name="pass" class="box" placeholder="Entrer votre mot de passe" required>
       <input type="submit" value="Se connecter" class="btn" name="submit">
-      <p>Vous n'avez pas de compte ? <a href="register.php">S'inscrire maintenant</a></p>
+      <p>Vous n'avez pas de compte ? <a href="/register">S'inscrire maintenant</a></p>
    </form>
 
 </section>

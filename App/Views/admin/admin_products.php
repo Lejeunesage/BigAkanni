@@ -160,7 +160,7 @@ if(isset($_GET['delete'])){
 
 
 
-<script src="js/script.js"></script>
+<script src="./ressources/js/script.js"></script>
 
 </body>
 </html>

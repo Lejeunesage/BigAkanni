@@ -7,7 +7,7 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if(!isset($user_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_POST['update_profile'])){
@@ -76,8 +76,8 @@ if(isset($_POST['update_profile'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/components.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/components.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -89,7 +89,7 @@ if(isset($_POST['update_profile'])){
    <h1 class="title">Mettre à jour du profile</h1>
 
    <form action="" method="POST" enctype="multipart/form-data">
-      <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
+      <img src="./ressources/uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
       <div class="flex">
          <div class="inputBox">
             <span>Nom d'utilisateur :</span>
@@ -103,16 +103,16 @@ if(isset($_POST['update_profile'])){
          <div class="inputBox">
             <input type="hidden" name="old_pass" value="<?= $fetch_profile['password']; ?>">
             <span>Ancien mot de passe :</span>
-            <input type="password" name="update_pass" placeholder="enter previous password" class="box">
+            <input type="password" name="update_pass" placeholder="Entre le mot de passe précedent" class="box">
             <span>Nouveau mot de passe :</span>
-            <input type="password" name="new_pass" placeholder="enter new password" class="box">
+            <input type="password" name="new_pass" placeholder="Entrer le nouveau mot de passe" class="box">
             <span>Confirmer le mot de passe :</span>
-            <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
+            <input type="password" name="confirm_pass" placeholder="Confirmer le nouveau mot de passe" class="box">
          </div>
       </div>
       <div class="flex-btn">
-         <input type="submit" class="btn" value="update profile" name="update_profile">
-         <a href="home.php" class="option-btn">Retour</a>
+         <input type="submit" class="btn" value="Mise à jour / profile" name="update_profile">
+         <a href="/" class="option-btn">Retour</a>
       </div>
    </form>
 
@@ -130,7 +130,7 @@ if(isset($_POST['update_profile'])){
 <?php include 'footer.php'; ?>
 
 
-<script src="js/script.js"></script>
+<script src="./ressources/js/script.js"></script>
 
 </body>
 </html>

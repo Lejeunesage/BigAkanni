@@ -58,4 +58,24 @@ class RouteController
     {
         require_once dirname(__DIR__) . '/Views/user/checkout.php';
     }
+
+    public function logout(): void
+    {
+        require_once dirname(__DIR__) . '/Views/user/logout.php';
+    }
+
+    
+    public function login(): void
+    {
+        require_once dirname(__DIR__) . '/Views/user/login.php';
+    }
+    
+    public function register(): void
+    {
+        require_once dirname(__DIR__) . '/Views/user/register.php';
+    }
+    public function user_profile_update(): void
+    {
+        require_once dirname(__DIR__) . '/Views/user/user_profile_update.php';
+    }
 }

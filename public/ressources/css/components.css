@@ -262,6 +262,10 @@ img{
    color:var(--orange);
 }
 
+.header > .flex > .icons{
+   display: flex;
+}
+
 .header .flex .icons > *{
    font-size: 2.5rem;
    color:var(--black);
@@ -273,15 +277,30 @@ img{
    color:var(--orange);
 }
 
-.header .flex .icons a span,
-.header .flex .icons a i{
+
+.header > .flex > .icons > a > span,
+.header > .flex > .icons a > svg
+{  
    color:var(--black);
 }
 
-.header .flex .icons a:hover span,
-.header .flex .icons a:hover i{
-   color:var(--orange);
+.header > .flex > .icons > a > span
+{
+   font-size: 10px ;
+   position: relative;
+   bottom: 20px;
+   right: 10px;
+   color:var(--white);
+   background-color: red;
+   border-radius: 50%;
+   padding:5px 8px ;
 }
+
+
+
+/* .header > .flex > .icons > a:hover span,
+.header > .flex > .icons a > svg:hover {
+} */
 
 .header .flex .icons a span{
    font-size: 2rem;
