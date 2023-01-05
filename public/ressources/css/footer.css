@@ -1,5 +1,5 @@
 
-  
+@import url('components.css');
 
 
 /*-----------------------------------*\
@@ -66,19 +66,27 @@
 }
 
 .social-link {
-    background-color: var(--dark-orange);
-    color: var(--white);
-    font-size: 1.5rem;
+   
+    font-size: 3rem;
     padding: 10px;
     transition: var(--transition-1);
 }
 
-.social-link:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
+.social-link > i {
+  color:var(--black);
+  transition: ease 0.5s;
+}
+
+.social-link > i:is(:hover, :focus){
+  color:var(--orange);
+  transform: scale(1.1);
+}
+
 
 .footer-list-title {
   position: relative;
   max-width: max-content;
-  color: var(--rich-black-fogra-29);
+  color: var(--black);
   font-family: var(--ff-rubik);
   font-size: var(--fs-3);
   font-weight: var(--fw-600);
@@ -142,7 +150,7 @@ textarea.input-field {
   --padding-inline: 25px;
 }
 
-.footer-form .btn:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
+.footer-form .btn:is(:hover, :focus) { background-color: var(--black); }
 **/
 
 .footer-bottom {
@@ -184,6 +192,6 @@ textarea.input-field {
   transform: translateY(-10px);
 }
 
-.back-top-btn:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
+.back-top-btn:is(:hover, :focus) { background-color: var(--black); }
 
 */

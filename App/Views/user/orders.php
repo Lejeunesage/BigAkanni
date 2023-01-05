@@ -4,11 +4,19 @@
 
 session_start();
 
-$user_id = $_SESSION['user_id'];
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+   header('location:/');
 
-if(!isset($user_id)){
-   header('location:/login');
-}
+};
+
+// $user_id = $_SESSION['user_id'];
+
+// if(!isset($user_id)){
+//    header('location:/login');
+// }
 
 ?>
 
@@ -53,7 +61,7 @@ if(!isset($user_id)){
       <p> Mode de paiement : <span><?= $fetch_orders['method']; ?></span> </p>
       <p> Vos commandes : <span><?= $fetch_orders['total_products']; ?></span> </p>
       <p> Prix total : <span><?= $fetch_orders['total_price']; ?>€</span> </p>
-      <p> Statut de paiement : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
+      <p> Statut de paiement : <span style="color:<?php if($fetch_orders['payment_status'] == 'En attente'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
    </div>
    <?php
       }
@@ -74,9 +82,11 @@ if(!isset($user_id)){
 
 
 
-<?php include 'footer.php'; ?>
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

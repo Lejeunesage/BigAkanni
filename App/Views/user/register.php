@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
    $image = htmlspecialchars($image);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image;
+   $image_folder = './ressources/uploaded_img/'.$image;
 
    $select = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
    $select->execute([$email]);
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
          $message[] = 'Le mot de passe ne correspond pas !';
       }else{
          $insert = $conn->prepare("INSERT INTO `users`(name, email, password, image) VALUES(?,?,?,?)");
-         $insert->execute([$name, $email, $pass, $image]);
+         $insert->execute([$name, $email, $pass, $image='default-img.jpg']);
 
          if($insert){
             if($image_size > 5000000){
@@ -73,9 +73,7 @@ if(isset($message)){
       <div class="message">
          <span>'.$message.'</span>
 
-         <svg  width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" onclick="this.parentElement.remove();">
-         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
-         </svg>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
 
       </div>
       ';
@@ -86,13 +84,14 @@ if(isset($message)){
    
 <section class="form-container">
 
-   <form action="/" enctype="multipart/form-data" method="POST">
+   <form action="" enctype="multipart/form-data" method="POST">
       <h3>S'inscrire maintenant</h3>
+      <p>pour avoir une meilleur expérience!</p>
       <input type="text" name="name" class="box" placeholder="Entre votre nom complet" required>
       <input type="email" name="email" class="box" placeholder="Entrer votre email" required>
       <input type="password" name="pass" class="box" placeholder="Entrer votre mot de passe" required>
       <input type="password" name="cpass" class="box" placeholder="Confirmer votre mot de passe" required>
-      <input type="file" name="image" class="box" required accept="image/jpg, image/jpeg, image/png">
+      <!-- <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png"> -->
       <input type="submit" value="S'inscrire" class="btn" name="submit">
       <p>Vous avez déjà un compte? <a href="/login">Se connecter</a></p>
    </form>

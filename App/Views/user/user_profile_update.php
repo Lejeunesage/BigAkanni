@@ -4,11 +4,17 @@
 
 session_start();
 
-$user_id = $_SESSION['user_id'];
-
-if(!isset($user_id)){
-   header('location:/login');
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
 };
+
+// $user_id = $_SESSION['user_id'];
+
+// if(!isset($user_id)){
+//    header('location:/login');
+// };
 
 if(isset($_POST['update_profile'])){
 
@@ -127,10 +133,12 @@ if(isset($_POST['update_profile'])){
 
 
 
-<?php include 'footer.php'; ?>
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

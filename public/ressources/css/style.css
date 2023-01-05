@@ -378,9 +378,11 @@
    text-align: center;
 }
 
-.about .row .box img{
+.about > .row > .box > img{
+   width: 100%;
+   object-fit: cover;
    margin-bottom: 2rem;
-   height: 40rem;
+ 
 }
 
 .about .row .box h3{

@@ -15,25 +15,25 @@
 
             <li>
               <a href="#" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
+                <i class="fab fa-facebook-f"></i>
               </a>
             </li>
-
+            
             <li>
               <a href="#" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
+                <i class="fab fa-twitter"></i> 
               </a>
             </li>
-
+            
             <li>
               <a href="#" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
+                <i class="fab fa-instagram"></i>
               </a>
             </li>
-
+            
             <li>
               <a href="#" class="social-link">
-                <ion-icon name="logo-pinterest"></ion-icon>
+                <i class="fab fa-youtube"></i>
               </a>
             </li>
 
@@ -48,11 +48,17 @@
           </li>
 
           <li>
-            <p class="footer-list-item">+1 (062) 109-9222</p>
+            <p class="footer-list-item">
+              <a href="tel:+229 57972575" >+229 57972575</a>
+            </p>
+            
           </li>
-
+          
           <li>
-            <p class="footer-list-item">Info@YourGmail24.com</p>
+            <p class="footer-list-item">
+              <a href="mailto:contact@bigburger.com">contact@bigburger.com</a>
+            </p>
+          
           </li>
 
           <li>

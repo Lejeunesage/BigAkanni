@@ -4,11 +4,17 @@
 
 session_start();
 
-$user_id = $_SESSION['user_id'];
 
-if(!isset($user_id)){
-   header('location:/login');
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
 };
+// $user_id = $_SESSION['user_id'];
+
+// if(!isset($user_id)){
+//    header('location:/login');
+// };
 
 if(isset($_POST['add_to_wishlist'])){
 
@@ -97,10 +103,10 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="p-category">
 
-   <a href="category.php?category=hamburges">Hamburges</a>
-   <a href="category.php?category=a-cote">A côté</a>
-   <a href="category.php?category=desserts">Désserts</a>
-   <a href="category.php?category=boissons">Boissons</a>
+   <a href="/category?category=hamburges">Hamburges</a>
+   <a href="/category?category=a-cote">A côté</a>
+   <a href="/category?category=desserts">Désserts</a>
+   <a href="/category?category=boissons">Boissons</a>
 
 </section>
 
@@ -118,13 +124,7 @@ if(isset($_POST['add_to_cart'])){
    ?>
    <form action="" class="box" method="POST">
       <div class="price"><span><?= $fetch_products['price']; ?></span>€</div>
-      <a href="/views?pid=<?= $fetch_products['id']; ?>">
-         <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-         <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-         <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
-         </svg>
-
-      </a>
+      <a href="/views?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
       <img src="./ressources/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
@@ -153,9 +153,11 @@ if(isset($_POST['add_to_cart'])){
 
 
 
-<?php include 'footer.php'; ?>
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
