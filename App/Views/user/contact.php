@@ -10,13 +10,14 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-// $user_id = $_SESSION['user_id'];
-
-// if(!isset($user_id)){
-//    header('location:/login');
-// };
 
 if(isset($_POST['send'])){
+   
+   $user_id = $_SESSION['user_id'];
+   
+   if(!isset($user_id)){
+      header('location:/login');
+   };
 
    $name = $_POST['name'];
    $name = htmlspecialchars($name);

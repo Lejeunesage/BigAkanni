@@ -10,13 +10,13 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-// $user_id = $_SESSION['user_id'];
-
-// if(!isset($user_id)){
-//    header('location:/login');
-// };
 
 if(isset($_POST['add_to_wishlist'])){
+
+   $user_id = $_SESSION['user_id'];
+   if(!isset($user_id)){
+         header('location:/login');
+      }
 
    $pid = $_POST['pid'];
    $pid = htmlspecialchars($pid);
@@ -40,12 +40,17 @@ if(isset($_POST['add_to_wishlist'])){
    }else{
       $insert_wishlist = $conn->prepare("INSERT INTO `wishlist`(user_id, pid, name, price, image) VALUES(?,?,?,?,?)");
       $insert_wishlist->execute([$user_id, $pid, $p_name, $p_price, $p_image]);
-      $message[] = 'Ajouté à la liste d\envie !';
+      $message[] = 'Ajouté à la liste d\'envie !';
    }
 
 }
 
 if(isset($_POST['add_to_cart'])){
+
+   $user_id = $_SESSION['user_id'];
+   if(!isset($user_id)){
+         header('location:/login');
+      }
 
    $pid = $_POST['pid'];
    $pid = htmlspecialchars($pid);

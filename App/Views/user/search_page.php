@@ -10,13 +10,13 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-// $user_id = $_SESSION['user_id'];
-
-// if(!isset($user_id)){
-//    header('location:/login');
-// };
 
 if(isset($_POST['add_to_wishlist'])){
+   $user_id = $_SESSION['user_id'];
+   
+   if(!isset($user_id)){
+      header('location:/login');
+   };
 
    $pid = $_POST['pid'];
    $pid = htmlspecialchars($pid);
@@ -46,6 +46,12 @@ if(isset($_POST['add_to_wishlist'])){
 }
 
 if(isset($_POST['add_to_cart'])){
+
+   $user_id = $_SESSION['user_id'];
+   
+   if(!isset($user_id)){
+      header('location:/login');
+   };
 
    $pid = $_POST['pid'];
    $pid = htmlspecialchars($pid);

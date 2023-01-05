@@ -11,13 +11,13 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-// $user_id = $_SESSION['user_id'];
-
-// if(!isset($user_id)){
-//    header('location:/login');
-// };
 
 if(isset($_POST['add_to_wishlist'])){
+   $user_id = $_SESSION['user_id'];
+   
+   if(!isset($user_id)){
+      header('location:/login');
+   };
 
    $pid = $_POST['pid'];
    $pid = htmlspecialchars($pid);
@@ -46,6 +46,12 @@ if(isset($_POST['add_to_wishlist'])){
 }
 
 if(isset($_POST['add_to_cart'])){
+
+   $user_id = $_SESSION['user_id'];
+   
+   if(!isset($user_id)){
+      header('location:/login');
+   };
 
    $pid = $_POST['pid'];
    $pid = htmlspecialchars($pid);
@@ -103,7 +109,7 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="products">
 
-   <h1 class="title">products categories</h1>
+   <h1 class="title">Produits par catégorie</h1>
 
    <div class="box-container">
 
@@ -119,11 +125,13 @@ if(isset($_POST['add_to_cart'])){
       <a href="/views?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
       <img src="./ressources/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
+      <h2 style="color:green;"><?= $fetch_products['category']; ?></h2>
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
       <input type="hidden" name="p_name" value="<?= $fetch_products['name']; ?>">
       <input type="hidden" name="p_price" value="<?= $fetch_products['price']; ?>">
       <input type="hidden" name="p_image" value="<?= $fetch_products['image']; ?>">
       <input type="hidden" type="number" min="1" value="1" name="p_qty" class="qty">
+
       <input type="submit" value="Ajouter à la liste d'envie" class="option-btn" name="add_to_wishlist">
       <input type="submit" value="Ajouter au panier" class="btn" name="add_to_cart">
    </form>

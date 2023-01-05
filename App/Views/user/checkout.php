@@ -11,13 +11,13 @@ if(isset($_SESSION['user_id'])){
    header('location:/');
 };
 
-// $user_id = $_SESSION['user_id'];
-
-// if(!isset($user_id)){
-//    header('location:/login');
-// };
 
 if(isset($_POST['order'])){
+   $user_id = $_SESSION['user_id'];
+   
+   if(!isset($user_id)){
+      header('location:/login');
+   };
 
    $name = $_POST['name'];
    $name = htmlspecialchars($name);

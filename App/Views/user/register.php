@@ -86,7 +86,7 @@ if(isset($message)){
 
    <form action="" enctype="multipart/form-data" method="POST">
       <h3>S'inscrire maintenant</h3>
-      <p>pour avoir une meilleur expérience!</p>
+      <p>pour avoir une meilleur expérience! 😋</p>
       <input type="text" name="name" class="box" placeholder="Entre votre nom complet" required>
       <input type="email" name="email" class="box" placeholder="Entrer votre email" required>
       <input type="password" name="pass" class="box" placeholder="Entrer votre mot de passe" required>

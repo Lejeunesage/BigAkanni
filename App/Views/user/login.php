@@ -80,7 +80,7 @@ if(isset($message)){
 
    <form action="" method="POST">
       <h3>Se connecter maintenant</h3>
-      <p>pour avoir une meilleur expérience!</p>
+      <p>pour avoir une meilleur expérience! 😋</p>
       <input type="email" name="email" class="box" placeholder="Entrer votre email" required>
       <input type="password" name="pass" class="box" placeholder="Entrer votre mot de passe" required>
       <input type="submit" value="Se connecter" class="btn" name="submit">
