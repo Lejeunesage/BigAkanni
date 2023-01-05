@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:login.php');
+   header('location:/login');
 }
 
 ?>
@@ -23,7 +23,8 @@ if(!isset($admin_id)){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="./ressources/css/admin_style.css">
+   <script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </head>
 <body>
@@ -47,7 +48,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $total_pendings; ?>€</h3>
       <p>Total des attentes</p>
-      <a href="admin_orders.php" class="btn">Voir les commandes</a>
+      <a href="/admin_orders" class="btn">Voir les commandes</a>
       </div>
 
       <div class="box">
@@ -61,7 +62,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $total_completed; ?>€</h3>
       <p>Commandes terminées</p>
-      <a href="admin_orders.php" class="btn">Voir les commandes</a>
+      <a href="/admin_orders" class="btn">Voir les commandes</a>
       </div>
 
       <div class="box">
@@ -72,7 +73,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $number_of_orders; ?></h3>
       <p>Commandes passées</p>
-      <a href="admin_orders.php" class="btn">Voir les commandes</a>
+      <a href="/admin_orders" class="btn">Voir les commandes</a>
       </div>
 
       <div class="box">
@@ -83,7 +84,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $number_of_products; ?></h3>
       <p>Produits ajoutés</p>
-      <a href="admin_products.php" class="btn">Voir les produits</a>
+      <a href="/admin_products" class="btn">Voir les produits</a>
       </div>
 
       <div class="box">
@@ -94,7 +95,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $number_of_users; ?></h3>
       <p>Nombre total d'utilisateurs</p>
-      <a href="admin_users.php" class="btn">Voir les comptes</a>
+      <a href="/admin_users" class="btn">Voir les comptes</a>
       </div>
 
       <div class="box">
@@ -105,7 +106,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $number_of_admins; ?></h3>
       <p>Nombre total d'administrateurs</p>
-      <a href="admin_users.php" class="btn">Voir les comptes</a>
+      <a href="/admin_users" class="btn">Voir les comptes</a>
       </div>
 
       <div class="box">
@@ -116,7 +117,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $number_of_accounts; ?></h3>
       <p>Nombre de comptes total</p>
-      <a href="admin_users.php" class="btn">Voir les comptes</a>
+      <a href="/admin_users" class="btn">Voir les comptes</a>
       </div>
 
       <div class="box">
@@ -127,7 +128,7 @@ if(!isset($admin_id)){
       ?>
       <h3><?= $number_of_messages; ?></h3>
       <p>Nombre total de messages</p>
-      <a href="admin_contacts.php" class="btn">Voir les messages</a>
+      <a href="/admin_contacts" class="btn">Voir les messages</a>
       </div>
 
    </div>
@@ -147,6 +148,7 @@ if(!isset($admin_id)){
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>

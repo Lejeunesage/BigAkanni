@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_POST['update_product'])){
@@ -26,7 +26,7 @@ if(isset($_POST['update_product'])){
    $image = htmlspecialchars($image);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image;
+   $image_folder = './ressources/uploaded_img/'.$image;
    $old_image = $_POST['old_image'];
 
    $update_product = $conn->prepare("UPDATE `products` SET name = ?, category = ?, details = ?, price = ? WHERE id = ?");
@@ -44,7 +44,7 @@ if(isset($_POST['update_product'])){
 
          if($update_image){
             move_uploaded_file($image_tmp_name, $image_folder);
-            unlink('uploaded_img/'.$old_image);
+            unlink('./ressources/uploaded_img/'.$old_image);
             $message[] = 'Image mise à jour avec succès !';
          }
       }
@@ -65,7 +65,7 @@ if(isset($_POST['update_product'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="./ressources/css/admin_style.css">
 
 </head>
 <body>
@@ -86,7 +86,7 @@ if(isset($_POST['update_product'])){
    <form action="" method="post" enctype="multipart/form-data">
       <input type="hidden" name="old_image" value="<?= $fetch_products['image']; ?>">
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
-      <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+      <img src="./ressources/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <input type="text" name="name" placeholder="Entrez le nom du produit" required class="box" value="<?= $fetch_products['name']; ?>">
       <input type="number" name="price" min="0" placeholder="Entrez le prix du produit" required class="box" value="<?= $fetch_products['price']; ?>">
       <select name="category" class="box" required>
@@ -100,7 +100,7 @@ if(isset($_POST['update_product'])){
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
       <div class="flex-btn">
          <input type="submit" class="btn" value="Mettre à jour le produit" name="update_product">
-         <a href="admin_products.php" class="option-btn">Retourner</a>
+         <a href="/admin_products" class="option-btn">Retourner</a>
       </div>
    </form>
    <?php
@@ -125,6 +125,7 @@ if(isset($_POST['update_product'])){
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>

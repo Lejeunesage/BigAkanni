@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_POST['update_order'])){
@@ -17,7 +17,7 @@ if(isset($_POST['update_order'])){
    $update_payment = htmlspecialchars($update_payment);
    $update_orders = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
    $update_orders->execute([$update_payment, $order_id]);
-   $message[] = 'payment has been updated!';
+   $message[] = 'Le paiement a été mis à jour !';
 
 };
 
@@ -26,7 +26,7 @@ if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $delete_orders = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
    $delete_orders->execute([$delete_id]);
-   header('location:admin_orders.php');
+   header('location:/admin_orders');
 
 }
 
@@ -43,7 +43,7 @@ if(isset($_GET['delete'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="./ressources/css/admin_style.css">
 
 </head>
 <body>
@@ -76,12 +76,12 @@ if(isset($_GET['delete'])){
             <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
             <select name="update_payment" class="drop-down">
                <!-- <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option> -->
-               <option value="pending" selected>En attente</option>
-               <option value="completed">Complété</option>
+               <option value="En attente" selected>En attente</option>
+               <option value="Completé">Complété</option>
             </select>
             <div class="flex-btn">
                <input type="submit" name="update_order" class="option-btn" value="Metre à jour">
-               <a href="admin_orders.php?delete=<?= $fetch_orders['id']; ?>" class="delete-btn" onclick="return confirm('Voulez -vous supprimer cette commande ?');">Supprimer</a>
+               <a href="/admin_orders?delete=<?= $fetch_orders['id']; ?>" class="delete-btn" onclick="return confirm('Voulez -vous supprimer cette commande ?');">Supprimer</a>
             </div>
          </form>
       </div>
@@ -108,6 +108,7 @@ if(isset($_GET['delete'])){
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>

@@ -74,8 +74,44 @@ class RouteController
     {
         require_once dirname(__DIR__) . '/Views/user/register.php';
     }
+
     public function user_profile_update(): void
     {
         require_once dirname(__DIR__) . '/Views/user/user_profile_update.php';
+    }
+
+    public function admin(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_page.php';
+    }
+
+    public function admin_orders(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_orders.php';
+    }
+
+    public function admin_contacts(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_contacts.php';
+    }
+
+    public function admin_update_profile(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_update_profile.php';
+    }
+
+    public function admin_users(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_users.php';
+    }
+
+    public function admin_update_product(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_update_product.php';
+    }
+
+    public function admin_products(): void
+    {
+        require_once dirname(__DIR__) . '/Views/admin/admin_products.php';
     }
 }

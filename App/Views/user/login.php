@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_id'] = $row['id'];
-         header('location:/admin_page');
+         header('location:/admin');
 
       }elseif($row['user_type'] == 'user'){
 

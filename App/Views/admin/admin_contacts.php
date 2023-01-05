@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_GET['delete'])){
@@ -15,7 +15,7 @@ if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $delete_message = $conn->prepare("DELETE FROM `message` WHERE id = ?");
    $delete_message->execute([$delete_id]);
-   header('location:admin_contacts.php');
+   header('location:/admin_contacts');
 
 }
 
@@ -31,7 +31,7 @@ if(isset($_GET['delete'])){
 
   
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="./ressources/css/admin_style.css">
 
 </head>
 <body>
@@ -56,7 +56,7 @@ if(isset($_GET['delete'])){
       <p> Numero : <span><?= $fetch_message['number']; ?></span> </p>
       <p> Email : <span><?= $fetch_message['email']; ?></span> </p>
       <p> Message : <span><?= $fetch_message['message']; ?></span> </p>
-      <a href="admin_contacts.php?delete=<?= $fetch_message['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce message?');" class="delete-btn">Supprimer</a>
+      <a href="/admin_contacts?delete=<?= $fetch_message['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce message?');" class="delete-btn">Supprimer</a>
    </div>
    <?php
          }
@@ -82,6 +82,7 @@ if(isset($_GET['delete'])){
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>

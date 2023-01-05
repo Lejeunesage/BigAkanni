@@ -17,7 +17,17 @@ $router
 ->add('/logout', 'App\RouteController:logout')
 ->add('/login', 'App\RouteController:login')
 ->add('/register', 'App\RouteController:register')
-->add('/user_profile_update', 'App\RouteController:user_profile_update');
+->add('/user_profile_update', 'App\RouteController:user_profile_update')
+->add('/admin', 'App\RouteController:admin')
+->add('/admin_orders', 'App\RouteController:admin_orders')
+->add('/admin_contacts', 'App\RouteController:admin_contacts')
+->add('/admin_update_profile', 'App\RouteController:admin_update_profile')
+->add('/admin_users', 'App\RouteController:admin_users')
+->add('/admin_update_product', 'App\RouteController:admin_update_product')
+->add('/admin_products', 'App\RouteController:admin_products')
+
+
+;
 
 
     // ->add('post/{slug}', 'App\PostController:show')

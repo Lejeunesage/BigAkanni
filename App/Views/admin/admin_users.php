@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_GET['delete'])){
@@ -15,7 +15,7 @@ if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $delete_users = $conn->prepare("DELETE FROM `users` WHERE id = ?");
    $delete_users->execute([$delete_id]);
-   header('location:admin_users.php');
+   header('location:/admin_users');
 
 }
 
@@ -32,8 +32,8 @@ if(isset($_GET['delete'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/admin_style.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -52,12 +52,12 @@ if(isset($_GET['delete'])){
          while($fetch_users = $select_users->fetch(PDO::FETCH_ASSOC)){
       ?>
       <div class="box" style="<?php if($fetch_users['id'] == $admin_id){ echo 'display:none'; }; ?>">
-         <img src="uploaded_img/<?= $fetch_users['image']; ?>" alt="">
+         <img src="./ressources/uploaded_img/<?= $fetch_users['image']; ?>" alt="">
          <p> Id utilisateur : <span><?= $fetch_users['id']; ?></span></p>
          <p> Nom d'utilisateur : <span><?= $fetch_users['name']; ?></span></p>
          <p> Email : <span><?= $fetch_users['email']; ?></span></p>
          <p> Rôle : <span style=" color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'orange'; }; ?>"><?= $fetch_users['user_type']; ?></span></p>
-         <a href="admin_users.php?delete=<?= $fetch_users['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur?');" class="delete-btn">Supprimer</a>
+         <a href="/admin_users?delete=<?= $fetch_users['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur?');" class="delete-btn">Supprimer</a>
       </div>
       <?php
       }
@@ -79,6 +79,7 @@ if(isset($_GET['delete'])){
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>

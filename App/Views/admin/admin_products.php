@@ -7,7 +7,7 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
-   header('location:login.php');
+   header('location:/login');
 };
 
 if(isset($_POST['add_product'])){
@@ -25,7 +25,7 @@ if(isset($_POST['add_product'])){
    $image = htmlspecialchars($image);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image;
+   $image_folder = './ressources/uploaded_img/'.$image;
 
    $select_products = $conn->prepare("SELECT * FROM `products` WHERE name = ?");
    $select_products->execute([$name]);
@@ -57,14 +57,14 @@ if(isset($_GET['delete'])){
    $select_delete_image = $conn->prepare("SELECT image FROM `products` WHERE id = ?");
    $select_delete_image->execute([$delete_id]);
    $fetch_delete_image = $select_delete_image->fetch(PDO::FETCH_ASSOC);
-   unlink('uploaded_img/'.$fetch_delete_image['image']);
+   unlink('./ressources/uploaded_img/'.$fetch_delete_image['image']);
    $delete_products = $conn->prepare("DELETE FROM `products` WHERE id = ?");
    $delete_products->execute([$delete_id]);
    $delete_wishlist = $conn->prepare("DELETE FROM `wishlist` WHERE pid = ?");
    $delete_wishlist->execute([$delete_id]);
    $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE pid = ?");
    $delete_cart->execute([$delete_id]);
-   header('location:admin_products.php');
+   header('location:/admin_products');
 
 
 }
@@ -82,7 +82,7 @@ if(isset($_GET['delete'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="./ressources/css/admin_style.css">
 
 </head>
 <body>
@@ -130,13 +130,13 @@ if(isset($_GET['delete'])){
    ?>
    <div class="box">
       <div class="price">$<?= $fetch_products['price']; ?>/-</div>
-      <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+      <img src="./ressources/uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
       <div class="cat"><?= $fetch_products['category']; ?></div>
       <div class="details"><?= $fetch_products['details']; ?></div>
       <div class="flex-btn">
-         <a href="admin_update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">Mettre à jour</a>
-         <a href="admin_products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Voulez-vous vraiment supprimer ce produit?');">Supprimer</a>
+         <a href="/admin_update_product?update=<?= $fetch_products['id']; ?>" class="option-btn">Mettre à jour</a>
+         <a href="/admin_products?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Voulez-vous vraiment supprimer ce produit?');">Supprimer</a>
       </div>
    </div>
    <?php
@@ -161,6 +161,8 @@ if(isset($_GET['delete'])){
 
 
 <script src="./ressources/js/script.js"></script>
+
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>

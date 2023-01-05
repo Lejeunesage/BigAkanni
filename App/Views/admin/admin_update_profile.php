@@ -24,7 +24,7 @@ if(isset($_POST['update_profile'])){
    $image = htmlspecialchars($image);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image;
+   $image_folder = './ressources/uploaded_img/'.$image;
    $old_image = $_POST['old_image'];
 
    if(!empty($image)){
@@ -35,7 +35,7 @@ if(isset($_POST['update_profile'])){
          $update_image->execute([$image, $admin_id]);
          if($update_image){
             move_uploaded_file($image_tmp_name, $image_folder);
-            unlink('uploaded_img/'.$old_image);
+            unlink('./ressources/uploaded_img/'.$old_image);
             $message[] = 'Image mise à jour avec succès !';
          };
       };
@@ -76,8 +76,8 @@ if(isset($_POST['update_profile'])){
   
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/components.css">
-   <link rel="stylesheet" href="./css/footer.css">
+   <link rel="stylesheet" href="./ressources/css/components.css">
+   <link rel="stylesheet" href="./ressources/css/footer.css">
 
 </head>
 <body>
@@ -89,7 +89,7 @@ if(isset($_POST['update_profile'])){
    <h1 class="title">Mettre à jour le profil</h1>
 
    <form action="" method="POST" enctype="multipart/form-data">
-      <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
+      <img src="./ressources/uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
       <div class="flex">
          <div class="inputBox">
             <span>Nom d'utilisateur :</span>
@@ -112,7 +112,7 @@ if(isset($_POST['update_profile'])){
       </div>
       <div class="flex-btn">
          <input type="submit" class="btn" value="Mettre à jour le profil" name="update_profile">
-         <a href="admin_page.php" class="option-btn">Retour</a>
+         <a href="/admin" class="option-btn">Retour</a>
       </div>
    </form>
 
@@ -131,6 +131,7 @@ if(isset($_POST['update_profile'])){
 
 
 <script src="./ressources/js/script.js"></script>
+<script src="https://kit.fontawesome.com/c4a535f47e.js"></script>
 
 </body>
 </html>
