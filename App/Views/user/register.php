@@ -1,52 +1,4 @@
-<?php
 
-include 'config.php';
-
-if(isset($_POST['submit'])){
-
-   $name = $_POST['name'];
-   $name = htmlspecialchars($name);
-   $email = $_POST['email'];
-   $email = htmlspecialchars($email);
-   $pass = md5($_POST['pass']);
-   $pass = htmlspecialchars($pass);
-   $cpass = md5($_POST['cpass']);
-   $cpass = htmlspecialchars($cpass);
-
-   $image = $_FILES['image']['name'];
-   $image = htmlspecialchars($image);
-   $image_size = $_FILES['image']['size'];
-   $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = './ressources/uploaded_img/'.$image;
-
-   $select = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-   $select->execute([$email]);
-
-   if($select->rowCount() > 0){
-      $message[] = 'L\'adresse e-mail de l\'utilisateur existe déjà !';
-   }else{
-      if($pass != $cpass){
-         $message[] = 'Le mot de passe ne correspond pas !';
-      }else{
-         $insert = $conn->prepare("INSERT INTO `users`(name, email, password, image) VALUES(?,?,?,?)");
-         $insert->execute([$name, $email, $pass, $image='default-img.jpg']);
-
-         if($insert){
-            if($image_size > 5000000){
-               $message[] = 'La taille de l\'image est trop grande !';
-            }else{
-               move_uploaded_file($image_tmp_name, $image_folder);
-               $message[] = 'Enregistré avec succès!';
-               header('location:/login');
-            }
-         }
-
-      }
-   }
-
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -84,7 +36,7 @@ if(isset($message)){
    
 <section class="form-container">
 
-   <form action="" enctype="multipart/form-data" method="POST">
+   <form action="/getting" enctype="multipart/form-data" method="POST">
       <h3>S'inscrire maintenant</h3>
       <p>pour avoir une meilleur expérience! 😋</p>
       <input type="text" name="name" class="box" placeholder="Entre votre nom complet" required>

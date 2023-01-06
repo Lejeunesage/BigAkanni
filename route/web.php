@@ -25,6 +25,7 @@ $router
 ->add('/admin_users', 'App\RouteController:admin_users')
 ->add('/admin_update_product', 'App\RouteController:admin_update_product')
 ->add('/admin_products', 'App\RouteController:admin_products')
+->add('/getting', 'App\RegisterController:getting')
 
 
 ;
